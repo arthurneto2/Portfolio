@@ -44,9 +44,9 @@
                     </h1>
                     <div class="subheading mb-5">
                         Rio Paranaíba, Minas Gerais, 38810-000 · +55 38 99745-0827 ·
-                        <a href="mailto:arthurneto779@gmail.com">arthurneto779@gmail.com</a>
+                        <a href="mailto:arthur.r.neto@ufv.br">arthur.r.neto@ufv.br</a>
                     </div>
-                    <p class="lead mb-5">Desenvolvedor de software com experiência sólida em Java (Spring Boot) e JavaScript (React, Angular). Foco no desenvolvimento de APIs robustas, análise de complexidade de algoritmos e criação de soluções escaláveis. Possuo habilidades em liderança, trabalho em equipe e comunicação.</p>
+                    <p class="lead mb-5">Desenvolvedor de software com experiência sólida em Java (Spring Boot) e atuação em sistemas distribuídos com Python (FastAPI), TypeScript (NestJS/React) e C# (.NET). Foco no desenvolvimento de APIs robustas, mensageria, resiliência a falhas e criação de soluções escaláveis. Possuo habilidades em liderança, trabalho em equipe e comunicação.</p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.linkedin.com/in/arthur-neto-5aa106204" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/arthurneto2" target="_blank"><i class="fab fa-github"></i></a>
@@ -60,19 +60,30 @@
                     <h2 class="mb-5">Experiência</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Membro do Setor de Negócios</h3>
-                            <div class="subheading mb-3">Empresa Júnior INFOALTO - UFV</div>
-                            <p>Atuo na InfoAlto no setor de negócios, onde junto com a equipe buscamos captar novos clientes para nossa empresa e junto a isso tentar entender as necessidades do mesmo e qual a melhor solução. Temos como foco atualmente a criação de landing pages com o intuito de melhorar a visibilidade dos nossos clientes.</p>
+                            <h3 class="mb-0">Sistema Distribuído de Emissão de Notas Fiscais</h3>
+                            <div class="subheading mb-3">Projeto Técnico - Korp</div>
+                            <p>Projetei e implementei um sistema de cadastro de produtos, emissão de notas fiscais e baixa de estoque distribuído em dois microsserviços .NET 10 (Minimal APIs + EF Core), cada um com seu próprio PostgreSQL, atrás de um gateway YARP, com interface em Angular 22 e orquestração completa via Docker Compose.</p>
+                            <p>O desafio central foi manter consistência sem transação ACID entre os bancos: resolvi com comandos idempotentes garantidos pelo próprio PostgreSQL (chave primária e índice UNIQUE sobre a <em>Idempotency-Key</em>), controle de concorrência otimista usando a coluna de sistema <code>xmin</code> como <em>row version</em> do EF Core, retentativa seletiva com Polly (apenas falhas transitórias, nunca erros de negócio) e compensação explícita quando o débito de estoque ocorre mas a impressão falha. Erros de domínio são traduzidos em <em>ProblemDetails</em> (RFC 7807) com <em>correlation ID</em> propagado entre os serviços e visível nos logs de ponta a ponta.</p>
+                            <p class="mb-0">A confiabilidade foi comprovada por 87 testes automatizados: backend com xUnit e Testcontainers subindo PostgreSQL 16 real (cobrindo concorrência sobre saldo disputado, duplo clique simultâneo, queda e recuperação do serviço de estoque) e frontend com Vitest. Habilidades praticadas: arquitetura de microsserviços, modelagem de domínio, resiliência a falhas, testes de integração realistas e desenvolvimento full stack.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Março 2025 - Atualmente</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">Agosto 2025</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Projetos Acadêmicos e Práticos</h3>
                             <div class="subheading mb-3">Universidade Federal de Viçosa (UFV)</div>
-                            <p>Durante minha graduação em Sistemas de Informação, desenvolvi diversos projetos práticos. Um destaque foi um programa para análise de complexidade de algoritmos (Big O), focando na eficiência e otimização. Também desenvolvi uma aplicação web para cálculo de custo e precificação de produtos utilizando Spring e React, que permitiu a aplicação de tecnologias robustas para construção de APIs eficientes e escaláveis. Essas experiências consolidaram conhecimentos em boas práticas, organização de código e resolução de problemas complexos.</p>
+                            <p>Experiência no desenvolvimento de um sistema de transporte federado e distribuído utilizando Python (FastAPI), TypeScript (NestJS/React) e RabbitMQ. Atuei na resolução de concorrência e consistência eventual de dados através de Locks Distribuídos com TTL, Relógios Lógicos de Lamport e o padrão Saga para orquestração de transações. Implementei resiliência a falhas de rede com Circuit Breakers e filas locais persistentes em Redis/BullMQ, monitorando a integridade da infraestrutura por meio de Prometheus e Grafana.</p>
+                            <p class="mb-0">Desenvolvi em C# .NET um cliente console modularizado que sincroniza relógios de alta precisão entre a Terra e sondas espaciais. Implementei algoritmo NTP adaptado para cálculo iterativo de desvio temporal (&lt; 5ms), padrão Factory para múltiplos codificadores (ISO 8601, Ticks Binary, Big-Endian) e orquestração de autenticação JWT com consumo de Jobs via API REST. Apliquei princípios de engenharia de software como polimorfismo, tratamento de falhas e reutilização de componentes.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2022 - Atualmente</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Membro do Setor de Negócios</h3>
+                            <div class="subheading mb-3">Empresa Júnior INFOALTO - UFV</div>
+                            <p>Atuo na InfoAlto no setor de negócios, onde junto com a equipe buscamos captar novos clientes para nossa empresa e junto a isso tentar entender as necessidades do mesmo e qual a melhor solução. Temos como foco atualmente a criação de landing pages com o intuito de melhorar a visibilidade dos nossos clientes.</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">Março 2025 - Atualmente</span></div>
                     </div>
                 </div>
             </section>
@@ -85,7 +96,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Universidade Federal de Viçosa (UFV)</h3>
                             <div class="subheading mb-3">Bacharelado em Sistemas de Informação</div>
-                            <div>Unidade Rio Paranaíba</div>
+                            <div>Unidade Rio Paranaíba · 7° Período</div>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2022 - Atualmente</span></div>
                     </div>
@@ -113,6 +124,8 @@
                         <li class="list-inline-item"><i class="fab fa-angular"></i></li>
                         <li class="list-inline-item"><i class="fab fa-react"></i></li>
                         <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-python"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-microsoft"></i></li>
                         <li class="list-inline-item"><i class="fab fa-docker"></i></li>
                         <li class="list-inline-item"><i class="fab fa-git"></i></li>
                         <li class="list-inline-item"><i class="fab fa-linux"></i></li>
@@ -132,8 +145,25 @@
                              <div class="subheading mb-3">Stack JS</div>
                              <ul class="fa-ul mb-0">
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span>JavaScript, TypeScript</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Node, NestJS, React, Angular</li>
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span>HTML5, CSS3</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Angular, React</li>
+                             </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                             <div class="subheading mb-3">Outras Stacks</div>
+                             <ul class="fa-ul mb-0">
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>C#, .NET, EF Core</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Python, FastAPI</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>xUnit, Testcontainers</li>
+                             </ul>
+                        </div>
+                        <div class="col-md-6">
+                             <div class="subheading mb-3">Sistemas Distribuídos & Observabilidade</div>
+                             <ul class="fa-ul mb-0">
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>RabbitMQ, Redis/BullMQ</li>
+                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Prometheus, Grafana</li>
                              </ul>
                         </div>
                     </div>
@@ -182,7 +212,7 @@
                     <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-language text-warning"></i></span>
-                            Inglês Avançado
+                            Inglês Intermediário
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-language text-warning"></i></span>
